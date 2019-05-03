@@ -1,6 +1,4 @@
-using System;
-
-namespace SafePets.Models
+namespace SafePets.Models.ViewModel
 {
     public class ErrorViewModel
     {
