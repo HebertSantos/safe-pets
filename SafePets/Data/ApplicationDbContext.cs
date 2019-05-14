@@ -14,5 +14,7 @@ namespace SafePets.Data
         {
         }
         public DbSet<SafePets.Models.Pet> Pet { get; set; }
+        public DbSet<SafePets.Models.Pessoa> Pessoa { get; set; }
+        public DbSet<SafePets.Models.Adocao> Adocao { get; set; }
     }
 }
