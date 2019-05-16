@@ -12,7 +12,6 @@ namespace SafePets.Models
         public string Raca { get; set; }
         public char Sexo { get; set; }
         public string Idade { get; set; }
-        public byte[] Imagem { get; set; }
         public ICollection<Adocao> Adocoes { get; set; } = new List<Adocao>();
 
         public Pet()
@@ -20,16 +19,15 @@ namespace SafePets.Models
 
         }
 
-        public Pet(int id, string nome, string raca, char sexo, string idade, byte[] imagem)
+        public Pet(int id, string nome, string raca, char sexo, string idade)
         {
             Id = id;
             Nome = nome;
             Raca = raca;
             Sexo = sexo;
             Idade = idade;
-            Imagem = imagem;
+            
         }
-
         public void AddAdocao(Adocao ad)
         {
             Adocoes.Add(ad);

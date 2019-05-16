@@ -55,7 +55,7 @@ namespace SafePets.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Raca,Sexo,Idade,Imagem")] Pet pet)
-        {
+        {   
             if (ModelState.IsValid)
             {
                 _context.Add(pet);
