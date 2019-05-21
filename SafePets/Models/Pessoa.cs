@@ -16,13 +16,15 @@ namespace SafePets.Models
         public string Bairro { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
+        public string Cep { get; set; }
+        public string Telefone { get; set; }
         public ICollection<Adocao> Adocoes { get; set; } = new List<Adocao>();
 
         public Pessoa()
         {
         }
 
-        public Pessoa(int id, string cpf, string rg, string nome, DateTime dataNascimento, string endereco, string bairro, string estado, string cidade)
+        public Pessoa(int id, string cpf, string rg, string nome, DateTime dataNascimento, string endereco, string bairro, string estado, string cidade,string cep, string telefone)
         {
             Id = id;
             Cpf = cpf;
@@ -33,7 +35,8 @@ namespace SafePets.Models
             Bairro = bairro;
             Estado = estado;
             Cidade = cidade;
-
+            Cep = cep;
+            Telefone = telefone;
         }
 
         public void AddAdocao (Adocao ad)

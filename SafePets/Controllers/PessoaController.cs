@@ -23,5 +23,10 @@ namespace SafePets.Controllers
             var list = _pessoaService.FindAll();
             return View(list);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
