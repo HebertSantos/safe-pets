@@ -22,5 +22,22 @@ namespace SafePets.Services
             return _context.Pessoa.ToList();
         }
 
+        public void Insert (Pessoa obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
+
+        public Pessoa FindById (int id)
+        {
+            return _context.Pessoa.FirstOrDefault(obj => obj.Id == id);
+        }
+
+        public void Remove (int id)
+        {
+            var obj = _context.Pessoa.Find(id);
+            _context.Pessoa.Remove(obj);
+            _context.SaveChanges();
+        }
     }
 }

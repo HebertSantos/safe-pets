@@ -11,6 +11,7 @@ namespace SafePets.Models
         public string Cpf { get; set; }
         public string Rg { get; set; }
         public string Nome { get; set; }
+        public string Email { get; set; }
         public DateTime DataNascimento { get; set; }
         public string Endereco  { get; set; }
         public string Bairro { get; set; }
@@ -24,12 +25,13 @@ namespace SafePets.Models
         {
         }
 
-        public Pessoa(int id, string cpf, string rg, string nome, DateTime dataNascimento, string endereco, string bairro, string estado, string cidade,string cep, string telefone)
+        public Pessoa(int id, string cpf, string rg, string nome, string email, DateTime dataNascimento, string endereco, string bairro, string estado, string cidade,string cep, string telefone)
         {
             Id = id;
             Cpf = cpf;
             Rg = rg;
             Nome = nome;
+            Email = email;
             DataNascimento = dataNascimento;
             Endereco = endereco;
             Bairro = bairro;
