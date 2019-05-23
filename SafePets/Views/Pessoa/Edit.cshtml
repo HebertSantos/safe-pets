@@ -1,14 +1,15 @@
 ﻿@model SafePets.Models.Pessoa;
 
 @{
-    ViewData["Title"] = "Novo Cadastro";
+    ViewData["Title"] = "Editar Cadastro";
 }
 
 <h2>@ViewData["Title"]</h2>
 
 <h4>Pessoa</h4>
 <hr />
-<form asp-action="Create">
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id"/>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label asp-for="Nome">Nome</label>
@@ -91,5 +92,5 @@
             <input asp-for="Telefone" class="form-control" placeholder="Ex.: (00) 00000-0000">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="submit" value="Save" class="btn btn-primary">Salvar</button>
 </form>

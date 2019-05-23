@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Data;
 using SafePets.Data;
 using SafePets.Models;
+using SafePets.Services.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace SafePets.Services
 {
@@ -39,5 +41,24 @@ namespace SafePets.Services
             _context.Pessoa.Remove(obj);
             _context.SaveChanges();
         }
+
+        public void Update(Pessoa obj)
+        {
+            if (!_context.Pessoa.Any(x => x.Id == obj.Id))
+            {
+                throw new NotFoundException("Id não encontrado");
+            }
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
+        }
+
+
     }
 }

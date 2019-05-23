@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace SafePets.Models
 {
@@ -11,13 +12,19 @@ namespace SafePets.Models
         public string Cpf { get; set; }
         public string Rg { get; set; }
         public string Nome { get; set; }
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Display(Name = "Data Nascimento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
         public string Endereco  { get; set; }
         public string Bairro { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
+        [DataType(DataType.PostalCode)]
         public string Cep { get; set; }
+        [DataType(DataType.PhoneNumber)]
         public string Telefone { get; set; }
         public ICollection<Adocao> Adocoes { get; set; } = new List<Adocao>();
 
