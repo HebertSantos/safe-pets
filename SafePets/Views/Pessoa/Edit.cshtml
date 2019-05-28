@@ -9,7 +9,7 @@
 <h4>Pessoa</h4>
 <hr />
 <form asp-action="Edit">
-    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="Id" />
     <div class="form-row">
         <div class="form-group col-md-6">
             <label asp-for="Nome">Nome</label>
@@ -92,5 +92,8 @@
             <input asp-for="Telefone" class="form-control" placeholder="Ex.: (00) 00000-0000">
         </div>
     </div>
-    <button type="submit" value="Save" class="btn btn-primary">Salvar</button>
+    <div>
+        <button type="submit" value="Save" class="btn btn-primary">Salvar</button>
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </div>
 </form>
