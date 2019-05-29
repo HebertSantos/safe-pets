@@ -22,9 +22,9 @@ namespace SafePets.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _pessoaService.FindAll();
+            var list = await _pessoaService.FindAllAsync();
             return View(list);
         }
 
@@ -35,20 +35,20 @@ namespace SafePets.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Pessoa pessoa)
+        public async Task<IActionResult> Create(Pessoa pessoa)
         {
-            _pessoaService.Insert(pessoa);
+            await _pessoaService.InsertAsync(pessoa);
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
             }
 
-            var obj = _pessoaService.FindById(id.Value);
+            var obj = await _pessoaService.FindByIdAsync(id.Value);
             if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
@@ -59,20 +59,20 @@ namespace SafePets.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _pessoaService.Remove(id);
+            await _pessoaService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
             }
 
-            var obj = _pessoaService.FindById(id.Value);
+            var obj = await _pessoaService.FindByIdAsync(id.Value);
             if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
@@ -81,14 +81,14 @@ namespace SafePets.Controllers
             return View(obj);
         }
 
-        public IActionResult Edit(int? id)
+        public async Task <IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
             }
 
-            var obj = _pessoaService.FindById(id.Value);
+            var obj = await _pessoaService.FindByIdAsync(id.Value);
             if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
@@ -98,7 +98,7 @@ namespace SafePets.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Pessoa pessoa)
+        public async Task<IActionResult> Edit(int id, Pessoa pessoa)
         {
             if (id != pessoa.Id)
             {
@@ -106,7 +106,7 @@ namespace SafePets.Controllers
             }
             try
             {
-                _pessoaService.Update(pessoa);
+                await _pessoaService.UpdateAsync(pessoa);
                 return RedirectToAction(nameof(Index));
             }
             catch (ApplicationException e)

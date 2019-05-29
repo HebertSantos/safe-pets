@@ -25,7 +25,7 @@ namespace SafePets.Data
                 return;
             }
 
-            Pet p1 = new Pet('1', "Dogao", "Pintcher", 'M', "12anos");
+            Pet p1 = new Pet('1', "Dogao", "Pintcher", "Macho", "12 anos");
             _context.Pet.AddRange(p1);
 
             _context.SaveChanges();

@@ -10,7 +10,7 @@ namespace SafePets.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Raca { get; set; }
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
         public string Idade { get; set; }
         public ICollection<Adocao> Adocoes { get; set; } = new List<Adocao>();
 
@@ -19,7 +19,7 @@ namespace SafePets.Models
 
         }
 
-        public Pet(int id, string nome, string raca, char sexo, string idade)
+        public Pet(int id, string nome, string raca, string sexo, string idade)
         {
             Id = id;
             Nome = nome;

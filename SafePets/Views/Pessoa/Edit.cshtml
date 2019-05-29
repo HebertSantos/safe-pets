@@ -1,13 +1,11 @@
 ﻿@model SafePets.Models.Pessoa;
 
 @{
-    ViewData["Title"] = "Editar Cadastro";
+    ViewData["Title"] = "Editar Cadastro de Pessoas";
 }
 
 <h2>@ViewData["Title"]</h2>
 
-<h4>Pessoa</h4>
-<hr />
 <form asp-action="Edit">
     <input type="hidden" asp-for="Id" />
     <div class="form-row">
@@ -46,9 +44,7 @@
         <div class="form-group col-md-4">
             <label asp-for="Estado">Estado</label>
             <select asp-for="Estado" class="form-control">
-                <option selected>Escolher...</option>
-                <option>...</option>
-                <option>AC</option>
+                <option selected>AC</option>
                 <option>AL</option>
                 <option>AP</option>
                 <option>AM</option>

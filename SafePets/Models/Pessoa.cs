@@ -9,8 +9,11 @@ namespace SafePets.Models
     public class Pessoa
     {
         public int Id { get; set; }
+        [Display(Name = "CPF")]
         public string Cpf { get; set; }
+        [Display(Name = "RG")]
         public string Rg { get; set; }
+
         public string Nome { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

@@ -46,6 +46,7 @@ namespace SafePets
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<PetService>();
             services.AddScoped<PessoaService>();
         }
 
