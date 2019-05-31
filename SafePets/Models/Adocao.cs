@@ -8,8 +8,8 @@ namespace SafePets.Models
         public int Id { get; set; }
         public DateTime DataAdocao { get; set; }
         public AdocaoStatus Status { get; set; }
-        public Pessoa Pessoa { get; set; }
-        public Pet Pet { get; set; }
+        public Pessoa PessoaId { get; set; }
+        public Pet PetId { get; set; }
 
         public Adocao()
         {
@@ -20,8 +20,8 @@ namespace SafePets.Models
             Id = id;
             DataAdocao = dataAdocao;
             Status = status;
-            Pessoa = pessoa;
-            Pet = pet;
+            PessoaId = pessoa;
+            PetId = pet;
         }
     }
 

@@ -48,6 +48,7 @@ namespace SafePets
             services.AddScoped<SeedingService>();
             services.AddScoped<PetService>();
             services.AddScoped<PessoaService>();
+            services.AddScoped<AdocaoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
