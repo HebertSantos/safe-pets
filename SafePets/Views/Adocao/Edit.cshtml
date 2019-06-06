@@ -1,7 +1,41 @@
-﻿
+﻿@model SafePets.Models.ViewModel.AdocaoFormViewModel;
+
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Adoção";
 }
 
-<h1>Edit</h1>
 
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Adocao.Id" />
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Adocao.PessoaId" class="control-label">Adotante</label>
+            <select asp-for="Adocao.PessoaId" asp-items="@(new SelectList(Model.Pessoas,"Id","Nome"))" class="form-control"></select>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Adocao.PetId" class="control-label">Adotado</label>
+            <select asp-for="Adocao.PetId" asp-items="@(new SelectList(Model.Pets,"Id","Nome"))" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Adocao.Status">Status</label>
+            <select asp-for="Adocao.Status" class="form-control">
+                <option selected value="0">Pendente</option>
+                <option value="1">Aprovado</option>
+                <option value="2">Cancelado</option>
+            </select>
+
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Adocao.DataAdocao">Data da Adoção</label>
+            <input asp-for="Adocao.DataAdocao" class="form-control" placeholder="Ex.: 00/00/0000">
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a asp-action="Index" class="btn btn-primary">Voltar</a>
+    </div>
+</form>

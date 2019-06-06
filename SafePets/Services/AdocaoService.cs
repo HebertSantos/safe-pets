@@ -31,7 +31,7 @@ namespace SafePets.Services
 
         public async Task<Adocao> FindByIdAsync(int id)
         {
-            return await _context.Adocao.FirstOrDefaultAsync(obj => obj.Id == id);
+            return await _context.Adocao.Include(obj => obj.Pet).Include(obj => obj.Pessoa).FirstOrDefaultAsync(obj => obj.Id == id);
         }
 
         public async Task RemoveAsync(int id)
