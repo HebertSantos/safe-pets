@@ -22,6 +22,7 @@ namespace SafePets.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
         public string Endereco  { get; set; }
+        public int Numero { get; set; }
         public string Bairro { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }
@@ -35,7 +36,7 @@ namespace SafePets.Models
         {
         }
 
-        public Pessoa(int id, string cpf, string rg, string nome, string email, DateTime dataNascimento, string endereco, string bairro, string estado, string cidade,string cep, string telefone)
+        public Pessoa(int id, string cpf, string rg, string nome, string email, DateTime dataNascimento, string endereco, int numero, string bairro, string estado, string cidade,string cep, string telefone)
         {
             Id = id;
             Cpf = cpf;
@@ -44,6 +45,7 @@ namespace SafePets.Models
             Email = email;
             DataNascimento = dataNascimento;
             Endereco = endereco;
+            Numero = numero;
             Bairro = bairro;
             Estado = estado;
             Cidade = cidade;

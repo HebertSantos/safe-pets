@@ -18,10 +18,9 @@ namespace SafePets.Services
         {
             _context = context;
         }
-
         public async Task<List<Adocao>> FindAllAsync()
-        {
-            return await _context.Adocao.ToListAsync();
+        {   
+            return await _context.Adocao.Include(obj => obj.Pessoa).Include(obj => obj.Pet).ToListAsync();
         }
         public async Task InsertAsync(Adocao obj)
         {
