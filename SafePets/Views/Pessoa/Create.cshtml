@@ -1,11 +1,11 @@
 ﻿@model SafePets.Models.Pessoa;
 
+
 @{
     ViewData["Title"] = "Novo Cadastro";
 }
 
 <h2>@ViewData["Title"]</h2>
-
 <h4>Pessoa</h4>
 <hr />
 <form asp-action="Create">
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group col-md-6">
             <label asp-for="Cpf">CPF</label>
-            <input asp-for="Cpf" class="form-control" placeholder="Ex.: 000.000.000-00">
+            <input id="txtCPF" asp-for="Cpf" class="form-control">
         </div>
     </div>
     <div class="form-row">
@@ -99,5 +99,4 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
         <a asp-action="Index" class="btn btn-primary">Voltar</a>
     </div>
-
 </form>
