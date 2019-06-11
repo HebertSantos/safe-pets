@@ -15,9 +15,9 @@ namespace SafePets.Controllers
     {
         private readonly AdocaoService _adocaoService;
         private readonly PessoaService _pessoaService;
-        private readonly PetService _petService;
+        private readonly FindFree _petService;
 
-        public AdocaoController(AdocaoService adocaoService, PessoaService pessoaService, PetService petService)
+        public AdocaoController(AdocaoService adocaoService, PessoaService pessoaService, FindFree petService)
         {
             _adocaoService = adocaoService;
             _pessoaService = pessoaService;
@@ -33,7 +33,7 @@ namespace SafePets.Controllers
         public async Task<IActionResult> Create()
         {
             var pessoas =  await _pessoaService.FindAllAsync();
-            var pets = await _petService.FindAllAsync();
+            var pets = _petService.GetPets();
             var viewModel = new AdocaoFormViewModel { Pessoas = pessoas, Pets = pets };
             return View(viewModel);
         }
@@ -45,7 +45,7 @@ namespace SafePets.Controllers
             if (!ModelState.IsValid)
             {
                 var pessoas = await _pessoaService.FindAllAsync();
-                var pets = await _petService.FindAllAsync();
+                var pets =  _petService.GetPets();
                 var viewModel = new AdocaoFormViewModel { Adocao = adocao, Pessoas = pessoas, Pets = pets };
                 return View(viewModel);
             }

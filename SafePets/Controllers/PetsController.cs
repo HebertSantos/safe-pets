@@ -13,10 +13,10 @@ namespace SafePets.Controllers
 {
     public class PetsController : Controller
     {
-        private readonly PetService _petService;
+        private readonly FindFree _petService;
 
 
-        public PetsController(PetService petService)
+        public PetsController(FindFree petService)
         {
             _petService = petService;
         }

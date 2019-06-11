@@ -10,11 +10,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SafePets.Services
 {
-    public class PetService
+    public class FindFree
     {
         private readonly ApplicationDbContext _context;
 
-        public PetService(ApplicationDbContext context)
+        public FindFree(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -22,6 +22,13 @@ namespace SafePets.Services
         public async Task<List<Pet>> FindAllAsync()
         {
             return await _context.Pet.ToListAsync();
+        }
+
+        public List<Pet> GetPets()
+        {
+            var subselect = (from b in _context.Adocao select b.PetId).ToList();
+            var result = from c in _context.Pet where !subselect.Contains(c.Id) select c;
+            return result.ToList();
         }
 
         public async Task InsertAsync(Pet obj)

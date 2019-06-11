@@ -29,7 +29,6 @@ namespace SafePets.Services
             _context.Add(obj);
             await _context.SaveChangesAsync();
         }
-
         public async Task<Pessoa> FindByIdAsync (int id)
         {
              return await _context.Pessoa.FirstOrDefaultAsync(obj => obj.Id == id);
