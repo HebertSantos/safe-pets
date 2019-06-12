@@ -9,26 +9,40 @@ namespace SafePets.Models
     public class Pessoa
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Preencha o campo CPF")]
         [Display(Name = "CPF")]
         public string Cpf { get; set; }
+        [Required(ErrorMessage = "Preencha o campo RG")]
         [Display(Name = "RG")]
         public string Rg { get; set; }
-
+        [Required(ErrorMessage = "Preencha o campo Nome")]
+        [MaxLength(150, ErrorMessage = "Máximo de 150 caracteres")]
+        [MinLength(2, ErrorMessage = "Minimo de 2 caracteres")]
         public string Nome { get; set; }
-        [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "Preencha o campo Email")]
+        [MaxLength(150, ErrorMessage = "Máximo de 150 caracteres")]
+        [EmailAddress(ErrorMessage = "Preencha um e-mail válido")]
+        [Display(Name ="E-mail")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Preencha a Data de Nascimento")]
         [Display(Name = "Data Nascimento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
+        [Required(ErrorMessage = "Preencha o Endereço")]
         public string Endereco  { get; set; }
+        [Required(ErrorMessage = "Preencha o campo Numero")]
         public int Numero { get; set; }
+        [Required(ErrorMessage = "Preencha o Bairro")]
         public string Bairro { get; set; }
+        [Required(ErrorMessage = "Preencha o campo Estado")]
         public string Estado { get; set; }
+        [Required(ErrorMessage = "Preencha o campo Cidade")]
         public string Cidade { get; set; }
+        [Required(ErrorMessage = "Preencha o campo Cep")]
         [DataType(DataType.PostalCode)]
         public string Cep { get; set; }
-        [DataType(DataType.PhoneNumber)]
+        [Required(ErrorMessage = "Preencha o campo Telefone")]
         public string Telefone { get; set; }
         public ICollection<Adocao> Adocoes { get; set; } = new List<Adocao>();
 

@@ -36,9 +36,17 @@ namespace SafePets.Services
 
         public async  Task RemoveAsync (int id)
         {
-            var obj = await _context.Pessoa.FindAsync(id);
-            _context.Pessoa.Remove(obj);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var obj = await _context.Pessoa.FindAsync(id);
+                _context.Pessoa.Remove(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException e)
+            {
+                throw new IntegrityException("Não pode deletar a Pessoa pois há adoções vinculadas");
+            }
+            
         }
 
         public async Task UpdateAsync(Pessoa obj)
