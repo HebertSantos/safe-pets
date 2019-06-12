@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Adocoes\ConsultaAgrupada.cshtml" />
     <Content Remove="Views\Adocoes\ConsultaSimples.cshtml" />
   </ItemGroup>
 

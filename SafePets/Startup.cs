@@ -49,6 +49,7 @@ namespace SafePets
             services.AddScoped<FindFree>();
             services.AddScoped<PessoaService>();
             services.AddScoped<AdocaoService>();
+            services.AddScoped<AdocoesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
