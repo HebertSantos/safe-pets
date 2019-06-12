@@ -23,7 +23,7 @@ namespace SafePets.Controllers
         public async Task<IActionResult> ConsultaSimples(DateTime? minDate, DateTime maxDate)
         {
             var result = await _adocoesService.FindByDateAsync(minDate,maxDate);
-            return View();
+            return View(result);
         }
 
         public IActionResult ConsultaAgrupada()
