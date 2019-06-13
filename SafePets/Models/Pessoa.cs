@@ -76,7 +76,5 @@ namespace SafePets.Models
         {
             Adocoes.Remove(ad);
         }
-
-
     }
 }

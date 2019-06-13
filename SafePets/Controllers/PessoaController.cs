@@ -8,6 +8,7 @@ using SafePets.Models.ViewModel;
 using SafePets.Services;
 using SafePets.Services.Exceptions;
 using System.Diagnostics;
+using PagedList;
 
 namespace SafePets.Controllers
 {

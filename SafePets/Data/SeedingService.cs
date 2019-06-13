@@ -40,7 +40,7 @@ namespace SafePets.Data
             _context.Pet.AddRange(p5);
             _context.Pet.AddRange(p6);
             _context.Pet.AddRange(p7);
-            _context.Pet.AddRange(p7);
+            _context.Pet.AddRange(p8);
 
             Pessoa p9 = new Pessoa('1', "405.873.388-81", "47.640.636-5", "Hebert Bueno dos Santos","hb-santos@hotmail.com", DateTime.Parse("2001-02-26"), "Rua Clorinda Cesaretti Moura", int.Parse("25"), "Romeu Santini", "SP", "São Carlos", "15566-500","(16) 99338-8188");
             Pessoa p10 = new Pessoa('2', "442.980.070-73", "48.219.382-7", "Marina Oliveira Araujo", "moaraujo@hotmail.com", DateTime.Parse("1967-08-11"), "Rua Tuiuti", int.Parse("1115"), "Iririú", "SC", "Joinville", "89227-470", "(47) 98749-6346");

@@ -126,7 +126,7 @@ namespace SafePets.Controllers
             if (!ModelState.IsValid)
             {
                 var pessoas = await _pessoaService.FindAllAsync();
-                var pets = await _petService.FindAllAsync();
+                var pets =  await _petService.FindAllAsync();
                 var viewModel = new AdocaoFormViewModel { Adocao = adocao, Pessoas = pessoas, Pets = pets };
                 return View(viewModel);
             }
